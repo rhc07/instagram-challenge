@@ -33,6 +33,28 @@ RSpec.describe User, type: :model do
       expect(subject.password_confirmation).to eq("password")
     end
   end
+
+  describe "when email is not present" do
+    before { @user.email = ""}
+    it { should_not be_valid }
+  end
+
+  describe "when user_handle is incorrect" do
+    before { @user.user_handle = ""}
+    it { should_not be_valid }
+  end
+
+  describe "when password is too short" do
+    before { @user.password = "12345"}
+    it { should_not be_valid }
+  end
+
+  describe "when password is too long" do
+    before { @user.password = "1234567Ten11"}
+    it { should_not be_valid }
+  end
+
+
 end  
 
 
