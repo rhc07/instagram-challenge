@@ -50,7 +50,7 @@ RSpec.describe User, type: :model do
   end
 
   describe "when password is too long" do
-    before { @user.password = "1234567Ten11"}
+    before { @user.password = "123456789101112131415"}
     it { should_not be_valid }
   end
 
