@@ -39,8 +39,13 @@ RSpec.describe User, type: :model do
     it { should_not be_valid }
   end
 
+  describe "when email is not valid" do
+    before { @user.email = "morgan22"}
+    it { should_not be_valid }
+  end
+
   describe "when user_handle is incorrect" do
-    before { @user.user_handle = ""}
+    before { @user.user_handle = " "}
     it { should_not be_valid }
   end
 
@@ -51,6 +56,11 @@ RSpec.describe User, type: :model do
 
   describe "when password is too long" do
     before { @user.password = "123456789101112131415"}
+    it { should_not be_valid }
+  end
+
+  describe "when password is not present" do
+    before { @user.password = @user.password_confirmation = " " }
     it { should_not be_valid }
   end
 
