@@ -9,6 +9,8 @@ gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
 gem 'simplecov', require: false, group: :test
 gem 'rubocop-rspec', require: false
+gem 'simple_form'
+gem "paperclip", "~> 6.0.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.1'

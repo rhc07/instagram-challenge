@@ -5,7 +5,15 @@ class RegistrationsController < ApplicationController
 
     def create
         @user = User.create(sign_up_params)
-        redirect_to posts_url
+        if @user.save
+            redirect_to posts_url, notice: "Successfully created an account"
+        else 
+            render :new 
+        end 
+    end
+
+    def posts
+        @current_user = sign_up_params.user_handle
     end
 
 
