@@ -6,15 +6,16 @@ class RegistrationsController < ApplicationController
     def create
         @user = User.create(sign_up_params)
         if @user.save
-            redirect_to posts_url, notice: "Successfully created an account"
+            redirect_to root_path, notice: "Successfully created an account"
         else 
+            flash[:alert] = "Something went wrong, please try again!"
             render :new 
         end 
     end
 
-    def posts
-        @current_user = sign_up_params.user_handle
-    end
+    # def posts
+    #     @current_user = User.find(params[:id])
+    # end
 
 
     private

@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   
   def index
+    @current_user = User.last
   end
 
   def new
